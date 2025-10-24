@@ -313,7 +313,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "View Certificate",
-          url: "YOUR_ZAFF_CERTIFICATE_URL" // Replace with the actual URL of your Zaff certificate
+          url: "https://drive.google.com/file/d/1qi8g1EJuqGKXp7cv4jbyF_A4zzSMCd1U/view?usp=drivesdk" // Replace with the actual URL of your Zaff certificate
         }
       ]
     },
@@ -326,7 +326,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "View Certificate",
-          url: "YOUR_FAMEFING_CERTIFICATE_URL" // Replace with the actual URL of your Famefing certificate
+          url: "https://drive.google.com/file/d/1h7kXf8HI399SRrlbTs_AnopOHixJREgF/view?usp=drivesdk" // Replace with the actual URL of your Famefing certificate
         }
       ]
     },
@@ -339,7 +339,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "View Certificate",
-          url: "YOUR_CISCO_CERTIFICATE_URL" // Replace with the actual URL of your Cisco certificate
+          url: "https://drive.google.com/file/d/1W3VFQ3wrZ_oWfd5JSAUilYJWJ9uL5mwF/view?usp=drivesdk" // Replace with the actual URL of your Cisco certificate
         }
       ]
     }
