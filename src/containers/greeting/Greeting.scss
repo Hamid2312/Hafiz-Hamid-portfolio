@@ -6,6 +6,7 @@
   margin: 0px auto;
   margin-top: 4rem;
 }
+
 .greet-main {
   width: 90%;
   padding: 20px 10px;
@@ -21,10 +22,6 @@
   color: $subTitle !important;
 }
 
-.greeting-main {
-  display: flex;
-}
-
 .greeting-main > * {
   flex: 1;
   margin-bottom: 30px;
@@ -37,7 +34,10 @@
 .button-greeting-div {
   display: flex;
   margin-top: 40px;
+  /* Added a gap for desktop/larger screens (optional but good practice) */
+  gap: 20px;
 }
+
 .download-link-button {
   text-decoration: none;
 }
@@ -99,10 +99,23 @@
     font-size: 20px;
   }
 }
+
 @media (max-width: 768px) {
   .button-greeting-div {
-    justify-content: space-around;
+    /* Switched to column direction for vertical stacking */
+    flex-direction: column;
+    /* Center the buttons horizontally */
+    align-items: center;
+    /* Ensure a clear vertical gap between buttons */
+    gap: 15px;
   }
+
+  /* NEW RULE to make buttons full width and clearly separated */
+  .button-greeting-div > a {
+    width: 80%; /* Makes the button wider for easier tapping */
+    max-width: 300px; /* Prevents them from being too wide on tablets */
+  }
+
   .greeting-text {
     font-size: 30px;
     text-align: center;

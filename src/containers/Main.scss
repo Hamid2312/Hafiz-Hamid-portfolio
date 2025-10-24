@@ -5,3 +5,9 @@
   color: white;
   transition: "0.1s";
 }
+/* METHOD 1: Hide Scrollbar on the X-axis for the entire page */
+
+body, html {
+  overflow-x: hidden; /* This hides the horizontal scrollbar */
+  width: 100%;       /* Ensures the elements start from the edge */
+}
