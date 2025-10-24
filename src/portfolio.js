@@ -240,30 +240,8 @@ const bigProjects = {
   title: "Major Development Projects",
   subtitle: "A collection of responsive web applications and frontend solutions built using React and modern HTML/CSS",
   projects: [
-    {
-      // Project 1: MyPIA Flight Portal (React)
-      image: require("./assets/images/mypia.png"), // PLACEHOLDER: Ensure mypia.png exists in your assets folder
-      projectName: "MyPIA Flight Portal",
-      projectDesc: "A modern, feature-rich flight booking portal built with React. Focuses on intuitive user experience, real-time flight information, and responsive layout across all devices.",
-      footerLink: [
-        {
-          name: "Live Demo",
-          url: "https://mypia.vercel.app/"
-        }
-      ]
-    },
-    {
-      // Project 2: Noor-e-Nisa E-commerce (React)
-      image: require("./assets/images/noor-e-nisa.png"), // PLACEHOLDER: Ensure noor-e-nisa.png exists in your assets folder
-      projectName: "Noor-e-Nisa E-commerce",
-      projectDesc: "A dedicated e-commerce platform for Pakistani ladies' dresses built with React. Showcases dynamic product catalogs, a modern cart system, and elegant, brand-focused UI/UX.",
-      footerLink: [
-        {
-          name: "Live Demo",
-          url: "https://noor-e-nisa.vercel.app/"
-        }
-      ]
-    },
+ 
+  
     {
       // Project 3: Famefing Landing Page (HTML/CSS)
       image: require("./assets/images/famefing.png"), // PLACEHOLDER: Ensure famefing.png exists in your assets folder
@@ -287,7 +265,31 @@ const bigProjects = {
           url: "https://html-project-l9xw.vercel.app/"
         }
       ]
-    }
+    },
+      {
+      // Project 2: Noor-e-Nisa E-commerce (React)
+      image: require("./assets/images/noor-e-nisa.png"), // PLACEHOLDER: Ensure noor-e-nisa.png exists in your assets folder
+      projectName: "Noor-e-Nisa E-commerce",
+      projectDesc: "A dedicated e-commerce platform for Pakistani ladies' dresses built with React. Showcases dynamic product catalogs, a modern cart system, and elegant, brand-focused UI/UX.",
+      footerLink: [
+        {
+          name: "Live Demo",
+          url: "https://noor-e-nisa.vercel.app/"
+        }
+      ]
+    },
+       {
+      // Project 1: MyPIA Flight Portal (React)
+      image: require("./assets/images/mypia.png"), // PLACEHOLDER: Ensure mypia.png exists in your assets folder
+      projectName: "MyPIA Flight Portal",
+      projectDesc: "A modern, feature-rich flight booking portal built with React. Focuses on intuitive user experience, real-time flight information, and responsive layout across all devices.",
+      footerLink: [
+        {
+          name: "Live Demo",
+          url: "https://mypia.vercel.app/"
+        }
+      ]
+    },
   ],
   display: true // Set false to hide this section, defaults to true
 };
