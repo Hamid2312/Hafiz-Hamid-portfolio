@@ -1,5 +1,5 @@
-import React, {useState, useEffect, lazy, Suspense} from "react";
-import {openSource} from "../../portfolio";
+import React, { useState, useEffect, lazy, Suspense } from "react";
+import { openSource } from "../../portfolio";
 import Contact from "../contact/Contact";
 import Loading from "../loading/Loading";
 
@@ -7,35 +7,46 @@ const renderLoader = () => <Loading />;
 const GithubProfileCard = lazy(() =>
   import("../../components/githubProfileCard/GithubProfileCard")
 );
+
 export default function Profile() {
   const [prof, setrepo] = useState([]);
+
   function setProfileFunction(array) {
     setrepo(array);
   }
 
   useEffect(() => {
     if (openSource.showGithubProfile === "true") {
-      const getProfileData = () => {
-        fetch("/profile.json")
-          .then(result => {
-            if (result.ok) {
-              return result.json();
-            }
-          })
-          .then(response => {
-            setProfileFunction(response.data.user);
-          })
-          .catch(function (error) {
-            console.error(
-              `${error} (because of this error GitHub contact section could not be displayed. Contact section has reverted to default)`
-            );
-            setProfileFunction("Error");
-            openSource.showGithubProfile = "false";
-          });
+      const getProfileData = async () => {
+        try {
+          // ✅ safer relative path for GitHub Pages or CRA build
+          const response = await fetch(`${process.env.PUBLIC_URL}/profile.json`);
+
+          // ✅ handle non-OK responses (e.g., 404 returns HTML)
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+
+          // ✅ verify expected structure
+          if (data && data.data && data.data.user) {
+            setProfileFunction(data.data.user);
+          } else {
+            throw new Error("Invalid profile.json structure");
+          }
+        } catch (error) {
+          console.error(
+            `${error} (because of this error GitHub contact section could not be displayed. Contact section has reverted to default)`
+          );
+          setProfileFunction("Error");
+          openSource.showGithubProfile = "false";
+        }
       };
       getProfileData();
     }
   }, []);
+
   if (
     openSource.display &&
     openSource.showGithubProfile === "true" &&

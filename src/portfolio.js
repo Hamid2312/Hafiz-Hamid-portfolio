@@ -145,7 +145,7 @@ const educationInfo = {
   schools: [
     {
       schoolName: "Virtual University of Pakistan",
-       logo: require("./assets/images/virtualunilogo.jpg"), // You'll need to create or find a logo asset for VU
+       logo: require("./assets/images/virtualUniLogo.png"), // You'll need to create or find a logo asset for VU
       subHeader: "Bachelor of Science in Computer Science (BSCS)",
       duration: "September 2024 - Present (Expected Graduation: 2028)",
       desc: "Currently pursuing a degree with a focus on modern web development and software engineering principles. Dedicated to maintaining a strong CGPA.",
