@@ -1,0 +1,6 @@
+{
+  "routes": [
+    { "src": "/Hamid-cv.pdf", "dest": "/Hamid-cv.pdf" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
