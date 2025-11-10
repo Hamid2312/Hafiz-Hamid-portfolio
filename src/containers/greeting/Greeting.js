@@ -1,21 +1,31 @@
-import React, {useContext} from "react";
-import {Fade} from "react-reveal";
+import React, { useContext } from "react";
+import { Fade } from "react-reveal";
 import emoji from "react-easy-emoji";
 import "./Greeting.scss";
 import landingPerson from "../../assets/lottie/landingPerson";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
-import {illustration, greeting} from "../../portfolio";
+import { illustration, greeting } from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 
-
-
 export default function Greeting() {
-  const {isDark} = useContext(StyleContext);
+  const { isDark } = useContext(StyleContext);
+
   if (!greeting.displayGreeting) {
     return null;
   }
+
+  // Function to force download of CV
+  const downloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/Hamid-cv.pdf"; // path in public folder
+    link.download = "Hamid-cv.pdf"; // downloaded file name
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <Fade bottom duration={1000} distance="40px">
       <div className="greet-main" id="greeting">
@@ -25,7 +35,6 @@ export default function Greeting() {
               <h1
                 className={isDark ? "dark-mode greeting-text" : "greeting-text"}
               >
-                {" "}
                 {greeting.title}{" "}
                 <span className="wave-emoji">{emoji("👋")}</span>
               </h1>
@@ -43,17 +52,10 @@ export default function Greeting() {
               <div className="button-greeting-div">
                 <Button text="Contact me" href="#contact" />
                 {greeting.resumeLink && (
-<a
-  href="/cv/Hamid-cv.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="download-link-button"
->
-  <Button text="Download My Resume" />
-</a>
-
-
-
+                  <Button
+                    text="Download My Resume"
+                    onClick={downloadCV} // <-- Force download
+                  />
                 )}
               </div>
             </div>
@@ -65,7 +67,7 @@ export default function Greeting() {
               <img
                 alt="man sitting on table"
                 src={require("../../assets/images/manOnTable.svg")}
-              ></img>
+              />
             )}
           </div>
         </div>
