@@ -1,0 +1,12 @@
+# Make sure binary files are not changed by git
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.zip binary
+*.mp4 binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
