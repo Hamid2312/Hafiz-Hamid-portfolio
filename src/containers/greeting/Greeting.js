@@ -16,11 +16,12 @@ export default function Greeting() {
     return null;
   }
 
-  // Function to force download of CV
+  // Function to download CV from Google Drive
   const downloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/Hamid-cv.pdf"; // path in public folder
-    link.download = "Hamid-cv.pdf"; // downloaded file name
+    link.href =
+      "https://drive.google.com/uc?export=download&id=10YZJYG3RhfPaEbQCYfo9HxMsb48rBG7Z"; // Direct download link
+    link.download = "Hamid-cv.pdf"; // name for downloaded file
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -35,8 +36,7 @@ export default function Greeting() {
               <h1
                 className={isDark ? "dark-mode greeting-text" : "greeting-text"}
               >
-                {greeting.title}{" "}
-                <span className="wave-emoji">{emoji("👋")}</span>
+                {greeting.title} <span className="wave-emoji">{emoji("👋")}</span>
               </h1>
               <p
                 className={
@@ -49,15 +49,21 @@ export default function Greeting() {
               </p>
               <div id="resume" className="empty-div"></div>
               <SocialMedia />
-              <div className="button-greeting-div">
-                <Button text="Contact me" href="#contact" />
-                {greeting.resumeLink && (
-                  <Button
-                    text="Download My Resume"
-                    onClick={downloadCV} // <-- Force download
-                  />
-                )}
-              </div>
+           <div className="button-greeting-div">
+  <Button text="Contact me" href="#contact" />
+  {greeting.resumeLink && (
+    <a
+      href="https://drive.google.com/uc?export=download&id=10YZJYG3RhfPaEbQCYfo9HxMsb48rBG7Z"
+      target="_blank"
+      rel="noopener noreferrer"
+      download="Hamid-cv.pdf"
+      className="download-link-button"
+    >
+      <Button text="Download My Resume" />
+    </a>
+  )}
+</div>
+
             </div>
           </div>
           <div className="greeting-image-div">
