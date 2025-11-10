@@ -8,14 +8,7 @@ import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
 import {illustration, greeting} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
-const downloadCV = () => {
-  const link = document.createElement("a");
-  link.href = "/Hamid-cv.pdf"; // Public folder path
-  link.download = "Hamid-cv.pdf"; // Name for the downloaded file
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
+
 
 
 export default function Greeting() {
@@ -51,12 +44,12 @@ export default function Greeting() {
                 <Button text="Contact me" href="#contact" />
                 {greeting.resumeLink && (
 <a
-  href="/Hamid-cv.pdf"
+  href="/cv/Hamid-cv.pdf"
   target="_blank"
   rel="noopener noreferrer"
   className="download-link-button"
 >
-  <Button text="Download my resume" />
+  <Button text="Download My Resume" />
 </a>
 
 
