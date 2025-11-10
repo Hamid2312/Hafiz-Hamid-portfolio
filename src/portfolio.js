@@ -62,10 +62,7 @@ const skillsSection = {
     emoji(
       "⚡ Developing and maintaining highly interactive, responsive, and performance-driven User Interfaces (UI)."
     ),
-    emoji("⚡ Expertise in building Single Page Applications (SPA) using modern JavaScript frameworks and deploying Progressive Web Apps (PWA)."),
-    emoji(
-      "⚡ Integrating RESTful APIs and third-party services to seamlessly connect the application layer with the user interface."
-    )
+
   ], // <-- COMMA needed here to continue the object definition
 
   /* Make Sure to include correct Font Awesome Classname to view your icon

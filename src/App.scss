@@ -2,7 +2,10 @@
 
 .App {
   text-align: center;
-  width: 100%;
+    width: 90%;           // Desktop width
+  max-width: 1600px;    // Optional: prevent too wide layout
+  margin: 0 auto;       // Center horizontally
+  min-width: 320px;
   overflow-x: hidden;
 }
 

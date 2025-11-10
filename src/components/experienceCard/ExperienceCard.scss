@@ -1,11 +1,19 @@
 @import "../../_globalColor";
 
+// Card styles
 .experience-card {
   position: relative;
   background-color: $lightBackground2;
   box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
   border-radius: 10px;
   border: 1px solid $lightBorder1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: $lightBoxShadowDark 0px 20px 30px -10px;
+    transform: translateY(-5px);
+  }
 }
 
 .experience-card-dark {
@@ -14,36 +22,33 @@
   box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
   border-radius: 10px;
   border: 1px solid $lightBorder1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: $lightBoxShadowDark 0px 20px 30px -10px;
+    transform: translateY(-5px);
+  }
 }
 
-.experience-card:hover {
-  box-shadow: $lightBoxShadowDark 0px 20px 30px -10px;
-}
-
+// Banner and image
 .experience-banner {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 150%;
   background: $experienceCardBannerLG;
   border-radius: 10px 10px 0px 0px;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -o-filter: blur(0px);
-  -ms-filter: blur(0px);
   filter: blur(0px);
   height: 11rem;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  position: relative;
 }
 
 .experience-blurred_div {
   position: absolute;
   background: $experienceCardBlurredDivLG;
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
   filter: blur(5px);
   height: 11rem;
   top: 0;
@@ -70,7 +75,6 @@
   margin: 0;
   color: $lightBackground1;
   font-size: 25px;
-  text-align: center;
   font-weight: 700;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -91,6 +95,7 @@
   border-radius: 50%;
 }
 
+// Role, date, description
 .experience-text-role {
   text-align: center;
   color: $textColor;
@@ -100,9 +105,11 @@
   padding-top: 1.5rem;
   line-height: normal;
 }
+
 .dark-mode-text {
   color: $textColorDark !important;
 }
+
 .experience-text-date {
   text-align: center;
   color: $textColor;
@@ -116,13 +123,27 @@
   text-align: center;
 }
 
+// Summary + expandable content
 .experience-text-details {
   padding: 1.5rem;
   margin-top: 2rem;
+  max-height: 5rem; // show summary by default
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  opacity: 0.95;
+
+  &.expanded {
+    max-height: 1000px; // enough to show full content
+    opacity: 1;
+  }
+
+  &.collapsed {
+    max-height: 5rem; // only summary
+    opacity: 0.9;
+  }
 }
 
-/* Media Query */
-
+/* Media Queries */
 @media (max-width: 1380px) {
   .experience-text-role {
     padding-top: 0.5rem;

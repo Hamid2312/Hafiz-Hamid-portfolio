@@ -1,13 +1,37 @@
 @import "../_globalColor";
 
+/* Dark Mode Styles */
 .dark-mode {
   background-color: $darkBackground;
   color: white;
-  transition: "0.1s";
+  transition: 0.1s;
 }
-/* METHOD 1: Hide Scrollbar on the X-axis for the entire page */
 
+/* Hide horizontal scrollbar globally */
 body, html {
-  overflow-x: hidden; /* This hides the horizontal scrollbar */
-  width: 100%;       /* Ensures the elements start from the edge */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  width: 100%;        /* Ensure elements start from the edge */
+}
+
+/* Global App Container for 90% width on desktop */
+.app-container {
+  width: 90%;          /* Always 90% width on desktop */
+  max-width: 1600px;   /* Prevent it from being too wide on large screens */
+  margin: 0 auto;      /* Center horizontally */
+  min-width: 320px;    /* Prevent layout from shrinking too much on small screens */
+  transition: width 0.3s ease;
+}
+
+/* Responsive adjustments for tablets and mobile */
+@media (max-width: 1024px) {
+  .app-container {
+    width: 95%;        /* Slightly larger width for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    width: 100%;       /* Full width on mobile */
+    padding: 0 1rem;   /* Small padding for content spacing */
+  }
 }

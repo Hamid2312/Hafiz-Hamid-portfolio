@@ -1,9 +1,10 @@
-import React, {useState, createRef} from "react";
+import React, { useState, createRef } from "react";
 import "./ExperienceCard.scss";
 import ColorThief from "colorthief";
 
-export default function ExperienceCard({cardInfo, isDark}) {
+export default function ExperienceCard({ cardInfo, isDark }) {
   const [colorArrays, setColorArrays] = useState([]);
+  const [isHovered, setIsHovered] = useState(false); // Track hover
   const imgRef = createRef();
 
   function getColorArrays() {
@@ -17,7 +18,7 @@ export default function ExperienceCard({cardInfo, isDark}) {
       : "rgb(" + values.join(", ") + ")";
   }
 
-  const GetDescBullets = ({descBullets, isDark}) => {
+  const GetDescBullets = ({ descBullets, isDark }) => {
     return descBullets
       ? descBullets.map((item, i) => (
           <li
@@ -31,8 +32,15 @@ export default function ExperienceCard({cardInfo, isDark}) {
   };
 
   return (
-    <div className={isDark ? "experience-card-dark" : "experience-card"}>
-      <div style={{background: rgb(colorArrays)}} className="experience-banner">
+    <div
+      className={isDark ? "experience-card-dark" : "experience-card"}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div
+        style={{ background: rgb(colorArrays) }}
+        className="experience-banner"
+      >
         <div className="experience-blurred_div"></div>
         <div className="experience-div-company">
           <h5 className="experience-text-company">{cardInfo.company}</h5>
@@ -47,7 +55,13 @@ export default function ExperienceCard({cardInfo, isDark}) {
           onLoad={() => getColorArrays()}
         />
       </div>
-      <div className="experience-text-details">
+
+      {/* Show summary if not hovered, full details on hover */}
+      <div
+        className={`experience-text-details ${
+          isHovered ? "expanded" : "collapsed"
+        }`}
+      >
         <h5
           className={
             isDark
@@ -66,18 +80,24 @@ export default function ExperienceCard({cardInfo, isDark}) {
         >
           {cardInfo.date}
         </h5>
-        <p
-          className={
-            isDark
-              ? "subTitle experience-text-desc dark-mode-text"
-              : "subTitle experience-text-desc"
-          }
-        >
-          {cardInfo.desc}
-        </p>
-        <ul>
-          <GetDescBullets descBullets={cardInfo.descBullets} isDark={isDark} />
-        </ul>
+
+        {/* Show description only on hover */}
+        {isHovered && (
+          <>
+            <p
+              className={
+                isDark
+                  ? "subTitle experience-text-desc dark-mode-text"
+                  : "subTitle experience-text-desc"
+              }
+            >
+              {cardInfo.desc}
+            </p>
+            <ul>
+              <GetDescBullets descBullets={cardInfo.descBullets} isDark={isDark} />
+            </ul>
+          </>
+        )}
       </div>
     </div>
   );
